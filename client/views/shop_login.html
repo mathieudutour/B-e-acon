@@ -1,36 +1,33 @@
 <template name="shop_login">
   <form id="signup-form" class="form">
-      <div>
-        <p class="error-form" id="error-serveur-register">Error on the server. Please try again :S</p>
-        <input type="text" id="account-name" placeholder="Name" />
-        <p class="error-form" id="name-too-short">The name must be over 2 characters.</p>
-        <p class="error-form" id="name-too-long">The name must be under 25 characters.</p>
-        <input type="email" id="account-email" placeholder="Email" />
-        <p class="error-form" id="already-a-account">This email is already used. <a href="#">Forgot your password ?</a></p>
-        <p class="error-form" id="not-an-email">This a not a correct email.</p>
-        <input type="password" id="account-password" placeholder="Password" />
-        <p class="error-form" id="password-too-short">The password must be over 6 characters.</p>
-        <div class="form-button">
-          {{#progress_button class="inverted" id="button-signup" type="submit"}}
-          Go !
-          {{/progress_button}}
-        </div>
+    <div>
+      <p class="error-form" id="error-serveur-register">Error on the server. Please try again :S</p>
+      <input type="text" id="account-name" placeholder="Name of the restaurant" />
+      <p class="error-form" id="name-too-short">The name must be over 2 characters.</p>
+      <p class="error-form" id="name-too-long">The name must be under 25 characters.</p>
+      <input type="email" id="account-email" placeholder="Email" />
+      <p class="error-form" id="already-a-account">This email is already used. <a href="#">Forgot your password ?</a>
+      </p>
+      <p class="error-form" id="not-an-email">This a not a correct email.</p>
+      <input type="password" id="account-password" placeholder="Password" />
+      <p class="error-form" id="password-too-short">The password must be over 6 characters.</p>
+      <div class="form-button">
+        {{#progress_button class="inverted" id="button-signup" type="submit"}} Go ! {{/progress_button}}
       </div>
-    </form>
+    </div>
+  </form>
   <form id="login-form" class="form">
-      <div>
-        <p class="error-form" id="error-serveur">Error on the server. Please try again :S</p>
-        <input type="email" id="login-email" placeholder="Email" />
-        <p class="error-form" id="user-not-found">This email does not correspond to any account.</p>
-        <input type="password" id="login-password" placeholder="Password" />
-        <p class="error-form" id="password-incorrect">Wrong password.</p>
-        <div class="form-button">
-          {{#progress_button class="inverted" id="button-login" type="submit"}}
-          Go !
-          {{/progress_button}}
-        </div>
+    <div>
+      <p class="error-form" id="error-serveur">Error on the server. Please try again :S</p>
+      <input type="email" id="login-email" placeholder="Email" />
+      <p class="error-form" id="user-not-found">This email does not correspond to any account.</p>
+      <input type="password" id="login-password" placeholder="Password" />
+      <p class="error-form" id="password-incorrect">Wrong password.</p>
+      <div class="form-button">
+        {{#progress_button class="inverted" id="button-login" type="submit"}} Go ! {{/progress_button}}
       </div>
-      <div id="note"><a href="#">Forgot your password ?</a>
-      </div>
-    </form>
+    </div>
+    <div id="note"><a href="#">Forgot your password ?</a>
+    </div>
+  </form>
 </template>

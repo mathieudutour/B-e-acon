@@ -5,10 +5,10 @@ Template.landing.helpers({
 });
 
 Template.landing.events({
-  "click #login": function(e, t) {
+  "click #login": function() {
     Router.goToPage(Router.Page.LOGIN);
   },
-  "click #login-shop": function(e, t) {
+  "click #login-shop": function() {
     Router.goToPage(Router.Page.SHOP_LOGIN);
   }
 });

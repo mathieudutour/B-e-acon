@@ -13,7 +13,7 @@ Template.shop_login.events({
         console.log(err);
         if (err.reason === "User not found" || err.reason === "Match failed") {
           Meteor.setTimeout( function() {
-            utils.showErrorForm(document.getElementById('user-not-found'))
+            utils.showErrorForm(document.getElementById('user-not-found'));
           }, 200);
         } else if (err.reason === "Incorrect password") {
           Meteor.setTimeout( function() {
@@ -51,7 +51,9 @@ Template.shop_login.events({
       utils.showErrorForm(t.find('#name-too-long'));
       button.error();
     } else {
-      Accounts.createUser({email: email, password : password, profile : {name: name}}, function(err){
+      Accounts.createUser({email: email,
+                           password : password,
+                           profile : {name: name, sections: []}}, function(err){
         if (err) {
           button.error();
           console.log(err);
@@ -65,7 +67,9 @@ Template.shop_login.events({
             }, 200);
           } else {
             Meteor.setTimeout( function() {
-              utils.showErrorForm(document.getElementById('error-serveur-register'));
+              utils.showErrorForm(
+                document.getElementById('error-serveur-register')
+              );
             }, 200);
           }
         } else {
