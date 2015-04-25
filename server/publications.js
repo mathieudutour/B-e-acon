@@ -1,17 +1,17 @@
-Meteor.publish("party", function (partyId) {
-  if (partyId) {
-    return Parties.find(partyId);
+Meteor.publish("menus", function (shopId) {
+  if (shopId) {
+    return Menus.find({shopId: shopId});
   } else {
     this.ready();
   }
 });
 
-Meteor.publish("songs", function (partyId) {
+Meteor.publish("shop", function (shopId) {
 
-  if (partyId) {
-    return Songs.find({
-      partyId: partyId,
-      archived: false
+  if (shopId) {
+    return Meteor.users.find({
+      _id: shopId,
+      isShop: true
     });
 
   } else {
@@ -19,13 +19,8 @@ Meteor.publish("songs", function (partyId) {
   }
 });
 
-Meteor.publish("votes", function (partyId, userId) {
-
-  if (partyId) {
-    return Votes.find({
-      userId: userId
-    });
-  } else {
-    this.ready();
-  }
+Meteor.publish("shops", function () {
+  return Meteor.users.find({
+    isShop: true
+  });
 });

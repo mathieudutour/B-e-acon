@@ -1,5 +1,6 @@
+Meteor.subscribe("shops");
+
 Tracker.autorun( function() {
-	Meteor.subscribe("party", Session.get("partyId"));
-	Meteor.subscribe("songs", Session.get("partyId"));
-	Meteor.subscribe("votes", Session.get("partyId"),Session.get("userId"));
+	Meteor.subscribe("menus", Session.get("shopId"));
+	Meteor.subscribe("shop", Session.get("shopId"));
 });
