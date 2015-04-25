@@ -1,4 +1,12 @@
 <template name="landing">
   landing
+  <ul>
+    {{#each shops}}
+    <li>{{profile.name}}</li>
+    {{else}}
+    no shops
+    {{/each}}
+  </ul>
   <button id="login">Login</button>
+  <button id="login-shop">Shop Login</button>
 </template>

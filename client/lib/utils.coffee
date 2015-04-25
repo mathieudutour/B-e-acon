@@ -15,7 +15,7 @@
   for el in t.find('.error-form')
     do (el) ->
       utils._hideErrorForm(el)
-  return button
+  return
 
 @utils.showErrorForm = (el) ->
   el.style.height = "20px"
