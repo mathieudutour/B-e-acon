@@ -1,11 +1,3 @@
-Meteor.publish("menus", function (shopId) {
-  if (shopId) {
-    return Menus.find({shopId: shopId});
-  } else {
-    this.ready();
-  }
-});
-
 Meteor.publish("shop", function (shopId) {
 
   if (shopId) {

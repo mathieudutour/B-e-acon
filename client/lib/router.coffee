@@ -3,6 +3,7 @@
   LANDING:
     index: 0
     url: '/'
+    default: true
   LOGIN:
     index: 1
     url: '/login'
@@ -11,9 +12,11 @@
     url: '/shop/login'
   SHOP_CONFIG:
     index: 3
+    protected: true
     url: '/shop/admin'
   SHOP_MENU:
     index: 4
+    protected: true
     url: '/shop/'
 
 Meteor.startup () ->
