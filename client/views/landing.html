@@ -1,0 +1,24 @@
+<template name="landing">
+  <ul>
+    {{#each shops}}
+      <li>{{profile.name}}</li>
+      {{else}}
+      no shops
+    {{/each}}
+  </ul>
+  <footer>
+    <ul>
+      <li><button id="login">Login</button></li>
+      <li><button id="login-shop">Shop Login</button></li>
+    </ul>
+  </footer>
+</template>
+
+<template name="shop_item">
+  <li>
+    <div class="logo">
+      <img src="{{profile.logo}}" />
+    </div>
+    <div class="name">{{profile.name}}</div>
+  </li>
+</template>

@@ -1,0 +1,15 @@
+<template name="router">
+  {{#if landing_page}}
+  {{> landing}}
+  {{else}}{{#if login_page}}
+  {{> login}}
+  {{else}}{{#if shop_login_page}}
+  {{> shop_login}}
+  {{else}}{{#if shop_config_page}}
+  {{> shop_config}}
+  {{else}}{{#if shop_menu_page}}
+  {{> shop_menu}}
+  {{else}}
+  Unknown page
+  {{/if}}{{/if}}{{/if}}{{/if}}{{/if}}
+</template>
