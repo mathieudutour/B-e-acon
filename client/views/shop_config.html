@@ -1,28 +1,51 @@
 <template name="shop_config">
-  <form>
-    <span>Company name:</span>
-    <input type="text" value="{{companyName}}"/><br/>
 
-    <span>Company motto:</span>
-    <input type="text" value=""/><br/>
-
-    <span>Choose your background colour:</span>
-    <input type="text" id="colorBackground" name="color" value="#123456" /><br/>
-
-    <span>Choose your main colour:</span>
-    <input type="text" id="colorMain" name="color" value="#123456" /><br/>
-
-    <span>Choose your text colour:</span>
-    <input type="text" id="colorText" name="color" value="#123456" /><br/>
+  <div id="controlPanel">
     
-    <div id="colorpicker"></div>
+    <span>Control Panel</span>
+    <div>
+      <ul id="menuList">
+        <li id="settings">Settings</li>
+        <li id="colors">Colors</li>
+        <li id="menu">Menu</li>
+      </ul>
+    </div>
+  </div>
+  <form>
+    <div class="userApp">
+      <div class="infoTab{{#if settings}} show{{/if}}">
+        <span>Company name:</span>
+        <input type="text" id="companyName" value="{{companyName}}"/><br/>
 
-    <span>Menu:</span><br/>
-    <button id="nextSection">Add section</button>
-    <div id="companyMenu">
-      {{#each sections}}
-        {{> menuList}}
-      {{/each}}
+        <span>Company motto:</span>
+        <input type="text" id="companyMotto" value="{{companyMotto}}"/><br/>
+
+        <span>Beacon ID:</span>
+        <input type="text" id="beaconID" value="{{beacon}}"/><br/>
+      </div>
+
+      <div class="colorTab{{#if colors}} show{{/if}}">
+        <span>Choose your background colour:</span>
+        <input type="text" id="colorBackground" name="colorBackground" value="{{colorBackground}}" /><br/>
+
+        <span>Choose your main colour:</span>
+        <input type="text" id="colorMain" name="colorMain" value="{{colorMain}}" /><br/>
+
+        <span>Choose your text colour:</span>
+        <input type="text" id="colorText" name="colorText" value="{{colorText}}" /><br/>
+        <div id="colorpicker"></div>
+      </div>
+
+      <div class="menuTab{{#if menu}} show{{/if}}">
+        <span>Menu:</span><br/>
+        <button id="nextSection">Add section</button>
+        <div id="companyMenu">
+          {{#each sections}}
+            {{> menuList}}
+          {{/each}}
+        </div>
+        <input type="submit" value="Submit"/>
+      </div>
     </div>
   </form>
 
@@ -31,15 +54,16 @@
 <template name="menuList">
 <div>
   <ul>
-    <input type="text" value="{{name}}">
-    <button id="nextItem">Add item</button>
-    <button id="removeSection">Remove section</button>
+    <input type="text" name="sectionName" value="{{name}}" id="name_{{_id._str}}">
+    <input type="text" name="sectionDescription" value="{{description}}" id="description_{{_id._str}}">
+    <button class="nextItem">Add item</button>
+    <button class="removeSection">Remove section</button>
     {{#each items}}
     <div>
     <li>
-      <input type="text" value="{{name}}">
-      <input type="text" value="{{description}}">
-      <input type="text" value="{{price}}">
+      <input type="text" name="itemName" value="{{name}}" id="name_{{_id._str}}">
+      <input type="text" name="itemDescriptione" value="{{description}}" id="description_{{_id._str}}">
+      <input type="text" name="itemPrice" value="{{price}}" id="price_{{_id._str}}">
       <button class="removeItem" id="{{_id}}">Remove item</button>
     </li>
     </div>
