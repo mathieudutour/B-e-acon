@@ -18,13 +18,10 @@ Template.shop_config.events({
     Session.set('currentPicker', "#colorText");
   },
   "click #nextSection": function (e, t) {
-<<<<<<< HEAD
     e.preventDefault();
     Meteor.users.update(Meteor.userId(), {$push: {"profile.sections":{name: "", description: "", items: [], _id: new Mongo.ObjectID()}}})
-=======
     Meteor.users.update(Meteor.userId(), {"profile.sections": {
       $push: {name: "", description: ""}}});
->>>>>>> 2d438b5d60bc6416ece5220bccf197b991a70078
   },
 });
 
@@ -36,7 +33,6 @@ Template.shop_config.helpers({
     return Meteor.user().profile.sections;
   },
 });
-<<<<<<< HEAD
 
 Template.menuList.events({
   "click #nextItem": function (e, t) {
@@ -69,5 +65,3 @@ Template.menuList.events({
     });
   },
 });
-=======
->>>>>>> 2d438b5d60bc6416ece5220bccf197b991a70078
