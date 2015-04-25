@@ -25,8 +25,9 @@ Meteor.methods({
   createTransaction: function (data) {
     var transaction = Meteor.wrapAsync(gateway.transaction.sale, gateway.transaction);
     // this is very naive, do not do this in production!
-    var amount = parseInt(data.quantity, 10) * data.price;
+//    var amount = parseInt(data.quantity, 10) * data.price;
       console.log(data);
+    var amount = 100;
     var response = transaction({
       amount: amount,
       paymentMethodNonce: data.nonce,

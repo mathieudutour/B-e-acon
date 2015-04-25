@@ -29,7 +29,7 @@ Meteor.methods(
         }
     }
     else {
-        console.log("qty < 0");
+        console.log("qty <= 0");
     }
   },
     "removeCartItem": function(id) {
