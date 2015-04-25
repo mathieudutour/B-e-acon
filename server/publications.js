@@ -11,17 +11,15 @@ Meteor.publish("shop", function (shopId) {
   }
 });
 
-Meteor.publish("shops", function () {
+Meteor.publish("shops", function (beaconIds) {
   return Meteor.users.find({
-    isShop: true
+    isShop: true,
+    "profile.info.beacon": {$in: JSON.parse(beaconIds)}
   });
 });
 
 Meteor.publish("categories", function() {
    return Categories.find();
-});
-Meteor.publish("cart", function() {
-   return Cart.find();
 });
 Meteor.publish("cartitems", function() {
    return CartItems.find();
