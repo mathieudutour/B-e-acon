@@ -1,19 +1,22 @@
 <template name="shop_config">
   <form>
     <span>Company name:</span>
-    <input type="text" value="{{companyName}}"/><br/>
+    <input type="text" id="companyName" value="{{companyName}}"/><br/>
     
     <span>Company motto:</span>
-    <input type="text" value=""/><br/>
+    <input type="text" id="companyMotto" value="{{companyMotto}}"/><br/>
+    
+    <span>Beacon ID:</span>
+    <input type="text" id="beaconID" value="{{beacon}}"/><br/>
     
     <span>Choose your background colour:</span>
-    <input type="text" id="colorBackground" name="color" value="#123456" /><br/>
+    <input type="text" id="colorBackground" name="colorBackground" value="{{colorBackground}}" /><br/>
 
     <span>Choose your main colour:</span>
-    <input type="text" id="colorMain" name="color" value="#123456" /><br/>
+    <input type="text" id="colorMain" name="colorMain" value="{{colorMain}}" /><br/>
 
     <span>Choose your text colour:</span>
-    <input type="text" id="colorText" name="color" value="#123456" /><br/>
+    <input type="text" id="colorText" name="colorText" value="{{colorText}}" /><br/>
     <div id="colorpicker"></div>
     
     <span>Menu:</span><br/>
@@ -23,6 +26,7 @@
         {{> menuList}}
       {{/each}}
     </div>
+    <input type="submit" value="Submit"/>
   </form>
 
 </template>
@@ -30,15 +34,16 @@
 <template name="menuList">
 <div>
   <ul>
-    <input type="text" value="{{name}}">
-    <button id="nextItem">Add item</button>
-    <button id="removeSection">Remove section</button>
+    <input type="text" name="sectionName" value="{{name}}" id="name_{{_id._str}}">
+    <input type="text" name="sectionDescription" value="{{description}}" id="description_{{_id._str}}">
+    <button class="nextItem">Add item</button>
+    <button class="removeSection">Remove section</button>
     {{#each items}}
     <div>
     <li>
-      <input type="text" value="{{name}}">
-      <input type="text" value="{{description}}">
-      <input type="text" value="{{price}}">
+      <input type="text" name="itemName" value="{{name}}" id="name_{{_id._str}}">
+      <input type="text" name="itemDescriptione" value="{{description}}" id="description_{{_id._str}}">
+      <input type="text" name="itemPrice" value="{{price}}" id="price_{{_id._str}}">
       <button class="removeItem" id="{{_id}}">Remove item</button>
     </li>
     </div>
