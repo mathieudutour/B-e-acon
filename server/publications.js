@@ -14,6 +14,6 @@ Meteor.publish("shop", function (shopId) {
 Meteor.publish("shops", function (beaconIds) {
   return Meteor.users.find({
     isShop: true,
-    "profile.beacon": {$in: JSON.parse(beaconIds)}
+    "profile.info.beacon": {$in: JSON.parse(beaconIds)}
   });
 });
