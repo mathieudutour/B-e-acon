@@ -1,0 +1,49 @@
+@import "common/variables.less";
+
+.shop_login {
+  width: 100%;
+  height: 100%;
+  background: url('images/background.jpg');
+  background-size: cover;
+
+  #signup-form {
+    color: #AAA;
+    position: absolute;
+    width: 40%;
+    height: 40vw;
+    background: #FFF;
+    float: left;
+    margin-left: 10%;
+    top: 50%;
+    transform: translateY(-50%);
+    .shadow;
+    & > div {
+      width: 50%;
+      margin-left: 25%;
+    }
+    .pb-container {
+      color: #4B1601;
+    }
+  }
+
+  #login-form {
+    color: #FFF;
+    position: absolute;
+    width: 35%;
+    height: 35vw;
+    background: rgba(75, 22, 1, 0.95);
+    float: left;
+    margin-left: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    .shadow;
+    & > div {
+      width: 50%;
+      margin-left: 25%;
+    }
+  }
+  h1 {
+    font-weight: 100;
+    text-align:center;
+  }
+}
