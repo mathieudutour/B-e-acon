@@ -8,3 +8,9 @@ meteor-platform
 less
 reactive-var
 chriswessels:hammer
+meteorhacks:npm
+
+
+npm-container
+ulexus:braintree
+hiukim:braintree-helper
