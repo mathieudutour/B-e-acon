@@ -6,12 +6,11 @@ var isBraintreeInitialized = false;
 // meteor libraries
 // TODO: do this better
 function getPrice(sessid){
-  var prods = CartItems.find(sessid);
-  alert(JSON.stringify(prods));
-  prods.forEach(function(entry) {
-    alert(entry.qty);
-  });
-
+  var cartItems = CartItems.find({session: sessid}).fetch();
+  var total = cartItems.reduce(function (a, b) {
+    return a + parseFloat(b.product.price) * b.quantity;
+  }, 0);
+  return total;
 }
 
 function serializeForm ($form) {
@@ -42,19 +41,22 @@ function initializeBraintree (clientToken) {
       // to make a transaction
       var data = serializeForm($('#checkout'));
       data.nonce = nonce;
-      Meteor.call('createTransaction', data, function (err, result) {
+      Meteor.call('createTransaction', data,
+                  Meteor.default_connection._lastSessionId,
+                  function (err, result) {
+        console.log(err, result);
         Session.set('paymentFormStatus', null);
-        Router.go('confirmation');
+        Router.goToPage(Router.Page.CONFIRMATION, Session.get('shopId'));
       });
     }
   });
 
   isBraintreeInitialized = true;
 }
-Template.BT.events({
+/*Template.BT.events({
   'submit .paymentBtn' : function(e){
     e.preventDefault();
-  Session.set('paymentFormStatus', true);
+    Session.set('paymentFormStatus', true);
 
     // we've received a payment nonce from braintree
     // we need to send it to the server, along with any relevant form data
@@ -68,15 +70,7 @@ Template.BT.events({
     });
   alert('bbb');
   }
-});
-//Template.product.events({
-//    'click .addcart':function(evt,tmpl){
-//        var qty = tmpl.find('.prodqty').value;
-//        var product = this._id;
-//        var sessid = Meteor.default_connection._lastSessionId;
-//        Meteor.call('addToCart',qty,product,sessid);
-//       // console.log(qty + " " + product + " " + sessid);
-//    }
+});*/
 
 
 Template.BT.helpers({

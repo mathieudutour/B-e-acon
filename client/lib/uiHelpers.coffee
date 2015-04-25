@@ -14,3 +14,7 @@ UI.registerHelper('prettifyDate', (date) ->
     else
       "The " + timestamp.toLocaleDateString('en')
 )
+
+UI.registerHelper('currency', (num) ->
+  '$' + Number(num).toFixed(2)
+)

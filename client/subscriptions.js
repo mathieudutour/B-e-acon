@@ -1,7 +1,5 @@
 Meteor.subscribe("shops");
 Meteor.subscribe("categories");
-Meteor.subscribe("subcategories");
-Meteor.subscribe("products");
 Meteor.subscribe("cart");
 Meteor.subscribe("cartitems");
 //Meteor.subscribe("addToCard");

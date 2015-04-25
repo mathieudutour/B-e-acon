@@ -16,3 +16,13 @@ Meteor.publish("shops", function () {
     isShop: true
   });
 });
+
+Meteor.publish("categories", function() {
+   return Categories.find();
+});
+Meteor.publish("cart", function() {
+   return Cart.find();
+});
+Meteor.publish("cartitems", function() {
+   return CartItems.find();
+});

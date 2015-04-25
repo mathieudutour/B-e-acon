@@ -9,7 +9,9 @@
   {{> shop_config}}
   {{else}}{{#if shop_menu_page}}
   {{> shop_menu}}
+  {{else}}{{#if confirmation_page}}
+  {{> confirmation}}
   {{else}}
   Unknown page
-  {{/if}}{{/if}}{{/if}}{{/if}}{{/if}}
+  {{/if}}{{/if}}{{/if}}{{/if}}{{/if}}{{/if}}
 </template>
