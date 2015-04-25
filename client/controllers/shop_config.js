@@ -18,16 +18,49 @@ Template.shop_config.events({
     Session.set('currentPicker', "#colorText");
   },
   "click #nextSection": function (e, t) {
-    Meteor.users.update({_id: Meteor.userId()}, {"profile.sections": {$push: {name: "", description: ""}}})
+    e.preventDefault();
+    Meteor.users.update(Meteor.userId(), {$push: {"profile.sections":
+          {name: "", description: "", items: [], _id: new Mongo.ObjectID()}}});
   },
 });
 
 Template.shop_config.helpers({
   companyName: function () {
-    //return Meteor.user().profile.name;
-    return "nananana batman"
+    return Meteor.user().profile.name;
   },
   sections: function () {
     return Meteor.user().profile.sections;
+  },
+});
+
+Template.menuList.events({
+  "click #nextItem": function (e, t) {
+    e.preventDefault();
+    var newSections = Meteor.user().profile.sections.map(function(section){
+      if(EJSON.equals(section._id, t.data._id)) {
+       section.items.push({name: "", price: "", _id: new Mongo.ObjectID(), description: ""}); 
+      }
+      return section;
+    });
+    Meteor.users.update(Meteor.userId(), {$set: {"profile.sections": newSections}});
+  },
+  "click #removeSection": function(e, t) {
+    e.preventDefault();
+    var newSections = Meteor.user().profile.sections.filter(function(section){
+      return !EJSON.equals(section._id, t.data._id);
+    });
+    Meteor.users.update(Meteor.userId(), {$set: {"profile.sections": newSections}});
+  },
+  "click .removeItem": function(e, t) {
+    e.preventDefault();
+    var newSections = Meteor.user().profile.sections.map(function(section){
+      if(EJSON.equals(section._id, t.data._id)) {
+        section.items = section.items.filter(function(item){
+          return item._id.toString() !== e.currentTarget.id;
+        });
+      }
+      return section;
+    });
+    Meteor.users.update(Meteor.userId(), {$set: {"profile.sections": newSections}});
   },
 });

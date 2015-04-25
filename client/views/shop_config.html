@@ -1,7 +1,5 @@
-
 <template name="shop_config">
   <form>
-    
     <span>Company name:</span>
     <input type="text" value="{{companyName}}"/><br/>
     
@@ -10,23 +8,41 @@
     
     <span>Choose your background colour:</span>
     <input type="text" id="colorBackground" name="color" value="#123456" /><br/>
-    
+
     <span>Choose your main colour:</span>
     <input type="text" id="colorMain" name="color" value="#123456" /><br/>
-    
+
     <span>Choose your text colour:</span>
     <input type="text" id="colorText" name="color" value="#123456" /><br/>
+    <div id="colorpicker"></div>
     
     <span>Menu:</span><br/>
     <button id="nextSection">Add section</button>
     <div id="companyMenu">
       {{#each sections}}
-      <div>
-        {{name}}
-      </div>
+        {{> menuList}}
       {{/each}}
     </div>
-    
   </form>
-  <div id="colorpicker"></div>
+
+</template>
+
+<template name="menuList">
+<div>
+  <ul>
+    <input type="text" value="{{name}}">
+    <button id="nextItem">Add item</button>
+    <button id="removeSection">Remove section</button>
+    {{#each items}}
+    <div>
+    <li>
+      <input type="text" value="{{name}}">
+      <input type="text" value="{{description}}">
+      <input type="text" value="{{price}}">
+      <button class="removeItem" id="{{_id}}">Remove item</button>
+    </li>
+    </div>
+    {{/each}}
+  </ul>
+</div>
 </template>
