@@ -1,32 +1,51 @@
 <template name="shop_config">
-  <form>
-    <span>Company name:</span>
-    <input type="text" id="companyName" value="{{companyName}}"/><br/>
+  <div id="controlPanel">
     
-    <span>Company motto:</span>
-    <input type="text" id="companyMotto" value="{{companyMotto}}"/><br/>
-    
-    <span>Beacon ID:</span>
-    <input type="text" id="beaconID" value="{{beacon}}"/><br/>
-    
-    <span>Choose your background colour:</span>
-    <input type="text" id="colorBackground" name="colorBackground" value="{{colorBackground}}" /><br/>
-
-    <span>Choose your main colour:</span>
-    <input type="text" id="colorMain" name="colorMain" value="{{colorMain}}" /><br/>
-
-    <span>Choose your text colour:</span>
-    <input type="text" id="colorText" name="colorText" value="{{colorText}}" /><br/>
-    <div id="colorpicker"></div>
-    
-    <span>Menu:</span><br/>
-    <button id="nextSection">Add section</button>
-    <div id="companyMenu">
-      {{#each sections}}
-        {{> menuList}}
-      {{/each}}
+    <span>Control Panel</span>
+    <div>
+      <ul id="menuList">
+        <li id="settings">Settings</li>
+        <li id="colors">Colors</li>
+        <li id="menu">Menu</li>
+      </ul>
     </div>
-    <input type="submit" value="Submit"/>
+  </div>
+  <form>
+    <div class="userApp">
+      <div class="infoTab{{#if settings}} show{{/if}}">
+        <span>Company name:</span>
+        <input type="text" id="companyName" value="{{companyName}}"/><br/>
+
+        <span>Company motto:</span>
+        <input type="text" id="companyMotto" value="{{companyMotto}}"/><br/>
+
+        <span>Beacon ID:</span>
+        <input type="text" id="beaconID" value="{{beacon}}"/><br/>
+      </div>
+
+      <div class="colorTab{{#if colors}} show{{/if}}">
+        <span>Choose your background colour:</span>
+        <input type="text" id="colorBackground" name="colorBackground" value="{{colorBackground}}" /><br/>
+
+        <span>Choose your main colour:</span>
+        <input type="text" id="colorMain" name="colorMain" value="{{colorMain}}" /><br/>
+
+        <span>Choose your text colour:</span>
+        <input type="text" id="colorText" name="colorText" value="{{colorText}}" /><br/>
+        <div id="colorpicker"></div>
+      </div>
+
+      <div class="menuTab{{#if menu}} show{{/if}}">
+        <span>Menu:</span><br/>
+        <button id="nextSection">Add section</button>
+        <div id="companyMenu">
+          {{#each sections}}
+            {{> menuList}}
+          {{/each}}
+        </div>
+        <input type="submit" value="Submit"/>
+      </div>
+    </div>
   </form>
 
 </template>
