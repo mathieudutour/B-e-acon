@@ -2,6 +2,12 @@
 <template name="shop_config">
   <form>
     
+    <span>Company name:</span>
+    <input type="text" value="{{companyName}}"/><br/>
+    
+    <span>Company motto:</span>
+    <input type="text" value=""/><br/>
+    
     <span>Choose your background colour:</span>
     <input type="text" id="colorBackground" name="color" value="#123456" /><br/>
     
@@ -10,6 +16,16 @@
     
     <span>Choose your text colour:</span>
     <input type="text" id="colorText" name="color" value="#123456" /><br/>
+    
+    <span>Menu:</span><br/>
+    <button id="nextSection">Add section</button>
+    <div id="companyMenu">
+      {{#each sections}}
+      <div>
+        {{name}}
+      </div>
+      {{/each}}
+    </div>
     
   </form>
   <div id="colorpicker"></div>
