@@ -43,13 +43,13 @@ function initializeBraintree (clientToken) {
   isBraintreeInitialized = true;
 }
 
-Template.home.helpers({
+Template.BT.helpers({
   paymentFormStatusClass: function () {
     return Session.get('paymentFormStatus') ? 'payment-form__is-submitting' : '';
   }
 });
 
-Template.home.rendered = function () {
+Template.BT.rendered = function () {
   Meteor.call('getClientToken', function (err, clientToken) {
     if (err) {
       console.log('There was an error', err);

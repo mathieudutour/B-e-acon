@@ -1,7 +1,7 @@
 Router.route('/', function () {
-  this.render('BT');
+  this.render('home');
 },{
-  name: 'BT'
+  name: 'home'
 });
 
 Router.route('/confirmation', function () {

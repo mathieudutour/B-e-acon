@@ -1,5 +1,4 @@
 var gateway;
-
 Meteor.startup(function () {
   var braintree = Meteor.npmRequire('braintree');
   gateway = braintree.connect({
