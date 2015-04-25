@@ -1,0 +1,14 @@
+.well{
+        margin-top:10px;
+        margin-right: 5px;
+        margin-left:5px;
+}
+.prodlist{
+    height:600px;
+    overflow-x:hidden;
+    overflow-y:auto;
+}
+
+.thumbnail{
+    width:90px;
+}

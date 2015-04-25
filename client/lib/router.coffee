@@ -16,8 +16,11 @@
     url: '/shop/admin'
   SHOP_MENU:
     index: 4
-    protected: true
     url: '/shop/'
+  CONFIRMATION:
+    index: 5
+    protected: true
+    url: '/confirmation/'
 
 Meteor.startup () ->
   paths = window.location.pathname
