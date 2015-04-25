@@ -1,4 +1,12 @@
 Meteor.subscribe("shops");
+Meteor.subscribe("categories");
+Meteor.subscribe("subcategories");
+Meteor.subscribe("products");
+Meteor.subscribe("cart");
+Meteor.subscribe("cartitems");
+//Meteor.subscribe("addToCard");
+
+
 
 Tracker.autorun( function() {
 	Meteor.subscribe("menus", Session.get("shopId"));
