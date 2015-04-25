@@ -11,8 +11,9 @@ Meteor.publish("shop", function (shopId) {
   }
 });
 
-Meteor.publish("shops", function () {
+Meteor.publish("shops", function (beaconIds) {
   return Meteor.users.find({
-    isShop: true
+    isShop: true,
+    "profile.beacon": {$in: JSON.parse(beaconIds)}
   });
 });
