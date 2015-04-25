@@ -34,5 +34,6 @@ function scan() {
 }
 
 Meteor.startup(function() {
+  console.log('scan');
   scan();
 });

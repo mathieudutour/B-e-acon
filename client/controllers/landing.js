@@ -1,6 +1,7 @@
 Template.landing.helpers({
   shops: function() {
-    Meteor.users.find({isShop: true});
+    Meteor.users.find({isShop: true,"profile.info.beacon":
+                       {$in: JSON.parse(Session.get('beaconIds'))}});
   }
 });
 

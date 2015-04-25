@@ -12,10 +12,15 @@ Meteor.publish("shop", function (shopId) {
 });
 
 Meteor.publish("shops", function (beaconIds) {
-  return Meteor.users.find({
-    isShop: true,
-    "profile.info.beacon": {$in: JSON.parse(beaconIds)}
-  });
+  console.log(JSON.parse(beaconIds));
+  if (beaconIds) {
+    return Meteor.users.find({
+      isShop: true,
+      "profile.info.beacon": {$in: JSON.parse(beaconIds)}
+    });
+  } else {
+    this.ready();
+  }
 });
 
 Meteor.publish("categories", function() {
