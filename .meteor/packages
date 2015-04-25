@@ -14,3 +14,7 @@ meteorhacks:npm
 npm-container
 ulexus:braintree
 hiukim:braintree-helper
+coffeescript
+accounts-base
+matdutour:progress-button
+accounts-password
