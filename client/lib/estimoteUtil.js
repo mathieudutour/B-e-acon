@@ -2,13 +2,15 @@ var beacons = {};
 
 function getListOfBeaconsMajors()
 {
-    
+    scan();
+    return JSON.stringify(beacons);
 }
 
-function startScan()
+function scan()
 	{
 		function onBeaconsRanged(beaconInfo)
 		{
+            beacons = {};
 			//console.log('onBeaconsRanged: ' + JSON.stringify(beaconInfo))
 			for (var i in beaconInfo.beacons)
 			{
@@ -17,11 +19,10 @@ function startScan()
 				var beacon = beaconInfo.beacons[i];
 				if (beacon.rssi < 0)
 				{
-					beacon.timeStamp = Date.now();
-					var key = beacon.uuid + ':' + beacon.major + ':' + beacon.minor;
-					beacons[key] = beacon;
+					beacons.push(beacon.major);
 				}
 			}
+            Session.set("beaconsIDs", JSON.stringify(beacons));
 		}
 
 		function onError(errorMessage)
