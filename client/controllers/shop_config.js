@@ -18,14 +18,14 @@ Template.shop_config.events({
     Session.set('currentPicker', "#colorText");
   },
   "click #nextSection": function (e, t) {
-    Meteor.users.update({_id: Meteor.userId()}, {"profile.sections": {$push: {name: "", description: ""}}})
+    Meteor.users.update(Meteor.userId(), {"profile.sections": {
+      $push: {name: "", description: ""}}});
   },
 });
 
 Template.shop_config.helpers({
   companyName: function () {
-    //return Meteor.user().profile.name;
-    return "nananana batman"
+    return Meteor.user().profile.name;
   },
   sections: function () {
     return Meteor.user().profile.sections;
