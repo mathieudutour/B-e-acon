@@ -57,6 +57,7 @@ Template.shop_config.events({
         item.name = t.find('#name_'+idItem).value;
         item.description = t.find('#description_'+idItem).value;
         item.price = t.find('#price_'+idItem).value;
+        item.url = t.find('#url_'+idItem).value;
         return item;
       })
       return section;
@@ -107,7 +108,7 @@ Template.menuList.events({
     e.preventDefault();
     var newSections = Meteor.user().profile.sections.map(function(section){
       if(EJSON.equals(section._id, t.data._id)) {
-       section.items.push({name: "", price: "", _id: new Mongo.ObjectID(), description: ""}); 
+       section.items.push({name: "", price: "", _id: new Mongo.ObjectID(), description: "", url: ""});
       }
       return section;
     });

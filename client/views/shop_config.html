@@ -27,7 +27,7 @@
             </div>
             <ul class="list-group">
               <li class="list-group-item">
-                <div class="row toggle" id="dropdown-detail-1" data-toggle="detail-1">
+                <div class="row toggle">
                   <div class="col-xs-12">
                     <input type="text" id="companyName" class="form-control" value="{{companyName}}"/><br/>
                   </div>
@@ -42,7 +42,7 @@
             </div>
             <ul class="list-group">
               <li class="list-group-item">
-                <div class="row toggle" id="dropdown-detail-1" data-toggle="detail-1">
+                <div class="row toggle">
                   <div class="col-xs-12">
                     <input type="text" id="companyMotto" class="form-control" value="{{companyMotto}}"/><br/>
                   </div>
@@ -57,7 +57,7 @@
             </div>
             <ul class="list-group">
               <li class="list-group-item">
-                <div class="row toggle" id="dropdown-detail-1" data-toggle="detail-1">
+                <div class="row toggle">
                   <div class="col-xs-12">        
                     <input type="text" id="beaconID" class="form-control" value="{{beacon}}"/><br/>
                   </div>
@@ -77,7 +77,7 @@
           </div>
           <ul class="list-group">
             <li class="list-group-item">
-              <div class="row toggle" id="dropdown-detail-1" data-toggle="detail-1">
+              <div class="row toggle">
                 <div class="col-xs-12">
                   <input type="text" id="colorBackground" class="form-control" name="colorBackground" value="{{colorBackground}}" /><br/>
                 </div>
@@ -96,7 +96,7 @@
           </div>
           <ul class="list-group">
             <li class="list-group-item">
-              <div class="row toggle" id="dropdown-detail-1" data-toggle="detail-1">
+              <div class="row toggle">
                 <div class="col-xs-12">
                   <input type="text" id="colorMain" class="form-control" name="colorMain" value="{{colorMain}}" /><br/>
                 </div>
@@ -113,7 +113,7 @@
           </div>
           <ul class="list-group">
             <li class="list-group-item">
-              <div class="row toggle" id="dropdown-detail-1" data-toggle="detail-1">
+              <div class="row toggle">
                 <div class="col-xs-12">
                   <input type="text" id="colorText" class="form-control" name="colorText" value="{{colorText}}" /><br/>
                 </div>
@@ -128,7 +128,7 @@
       <div class="menuTab{{#if menu}} show{{/if}}">
         <div class="panel panel-default">
           <div class="panel-heading">
-            <h3 class="panel-title">Menu: <button class="onLeft" id="nextSection">Add section</button></h3>
+            <h3 class="panel-title">Menu: <button class="onLeft button" id="nextSection">Add section</button></h3>
           </div>
         <div id="companyMenu">
           {{#each sections}}
@@ -152,18 +152,20 @@
 <div class="wholeSection">
       <ul class="list-group">
         <li class="list-group-item">
-          <div class="row toggle" id="dropdown-detail-1" data-toggle="detail-1">
+          <div class="row toggle">
             <div class="col-xs-6">
               <input placeholder="Section Name.." type="text" name="sectionName" class="form-control" value="{{name}}"                                            id="name_{{_id._str}}">
 
             </div>
-            <span class="onLeft toggleSection"><i class="fa fa-chevron-down"></i></span>
-            <button class="removeSection onLeft">Remove section</button>
-            <button class="nextItem onLeft">Add item</button>
+            <div class="col-xs-6">
+              <span class="onLeft toggleSection"><i class="fa fa-chevron-down"></i></span>
+              <button class="removeSection onLeft button">Remove</button>
+              <button class="nextItem onLeft button">Add item</button>
+            </div>
           </div>
         </li>
         <li class="list-group-item">
-          <div class="row toggle" id="dropdown-detail-1" data-toggle="detail-1">
+          <div class="row toggle">
             <div class="col-xs-6">
               <input placeholder="Description.." type="text" name="sectionDescription" class="form-control" value="{{description}}"                               id="description_{{_id._str}}">
             </div>
@@ -176,18 +178,18 @@
     {{#each items}}
     <div class="wholeItem {{#if hideItems}} hiddenItem {{/if}}">
       <li class="list-group-item">
-        <div class="row toggle" id="dropdown-detail-1" data-toggle="detail-1">
+        <div class="row toggle">
           <div class="col-xs-6">
             <input placeholder="Item Name.." class="form-control" type="text" name="itemName" value="{{name}}" id="name_{{_id._str}}"><br/>
           </div>
           <div class="col-xs-6">
-            <button class="removeItem onLeft" id="{{_id}}">Remove item</button>
+            <button class="removeItem onLeft button" id="{{_id}}">Remove</button>
           </div>
         </div>
       </li>
 
       <li class="list-group-item">
-        <div class="row toggle" id="dropdown-detail-1" data-toggle="detail-1">
+        <div class="row toggle">
           <div class="col-xs-12">
           <input placeholder="Description.." class="form-control" type="text" name="itemDescriptione" value="{{description}}"                               id="description_{{_id._str}}"><br/>
           </div>
@@ -195,14 +197,20 @@
       </li>
 
       <li class="list-group-item">
-        <div class="row toggle" id="dropdown-detail-1" data-toggle="detail-1">
+        <div class="row toggle">
           <div class="col-xs-12">
             <input placeholder="Price.." class="form-control" type="text" name="itemPrice" value="{{price}}" id="price_{{_id._str}}"><br/>
           </div>
         </div>
       </li>
+            <li class="list-group-item">
+        <div class="row toggle">
+          <div class="col-xs-12">
+            <input placeholder="URL.." class="form-control" type="text" name="itemUrl" value="{{url}}" id="url_{{_id._str}}"><br/>
+          </div>
+        </div>
+      </li>
     </div>
-
     {{/each}}
 </div>
 </template>
