@@ -1,6 +1,8 @@
 <template name="landing">
   <div class="landing">
     {{#if shops}}
+    <header class="mobile">Cafés around you</header>
+    <div class="no-more">That's all for now.</div>
     <ul class="shops">
       {{#each shops}}
         {{> shop_item}}
@@ -22,7 +24,9 @@
 
 <template name="shop_item">
   <li class="shop" style="background-image: url(/images/food.jpg)">
-    <div class="name">{{profile.name}}</div>
-    <div class="motto">{{profile.info.motto}}</div>
+    <div class="text">
+      <div class="name">{{profile.name}}</div>
+      <div class="motto">{{profile.info.motto}}</div>
+    </div>
   </li>
 </template>

@@ -1,8 +1,60 @@
+@import "common/variables.less";
+
+body {
+  padding: 0;
+}
+
+header.mobile {
+  height: 66px;
+  padding-top: 22px;
+  background: #4B1601;
+  color: #FFF;
+  font-weight: 100;
+  font-size: 2em;
+  text-align: center;
+  line-height: 44px;
+  .shadow;
+}
+
 .landing {
+  position: relative;
+  height: 100%;
+  overflow-y: auto;
   .shops {
     margin: 0;
     .shop {
+      background-size: cover;
+      background-position: center;
+      height: 200px;
       list-style: none;
+      padding-top: 110px;
+      .text {
+        padding-left: 20px;
+        height: 90px;
+        background-image: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0));
+        .name {
+          font-weight: 100;
+          font-size: 3em;
+          color: #FFF;
+          line-height: 1.5em;
+        }
+        .motto {
+          font-weight: 100;
+          font-size: 1.5em;
+          color: #BBB;
+        }
+      }
     }
+  }
+
+  .no-more {
+    width: 100%;
+    position: absolute;
+    color: #AAA;
+    bottom: 50px;
+    z-index: -1;
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: 100;
   }
 }
