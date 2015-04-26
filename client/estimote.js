@@ -4,7 +4,7 @@ function scan() {
   if (estimote) {
     function onBeaconsRanged(beaconInfo) {
       beacons = [];
-      //console.log('onBeaconsRanged: ' + JSON.stringify(beaconInfo));
+
       for (var i in beaconInfo.beacons) {
         // Insert beacon into table of found beacons.
         // Filter out beacons with invalid RSSI values.
@@ -13,6 +13,7 @@ function scan() {
           beacons.push(beacon.major);
         }
       }
+      console.log('onBeaconsRanged: ' + JSON.stringify(beacons));
       Session.set("beaconsIDs", JSON.stringify(beacons));
     }
 

@@ -13,6 +13,7 @@ Meteor.publish("shop", function (shopId) {
 
 Meteor.publish("shops", function (beaconIds) {
   if (beaconIds) {
+    console.log(beaconIds)
     return Meteor.users.find({
       'profile.isShop': true,
       "profile.info.beacon": {$in: JSON.parse(beaconIds).map(function(id){
