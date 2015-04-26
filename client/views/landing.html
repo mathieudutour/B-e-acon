@@ -1,21 +1,27 @@
 <template name="landing">
-  <ul>
-    {{#each shops}}
-      <li class="shop" id="{{_id}}">{{profile.name}}</li>
-    {{else}}
-      no shops
-    {{/each}}
-  </ul>
-  <footer>
+  <div class="landing">
+    {{#if shops}}
     <ul>
-      <li><button id="login">Login</button></li>
-      <li><button id="login-shop">Shop Login</button></li>
+      {{#each shops}}
+        {{> shop_item}}
+      {{/each}}
     </ul>
-  </footer>
+    {{else}}
+    <header>
+
+    </header>
+    <footer>
+      <ul>
+        <li><button id="login">Login</button></li>
+        <li><button id="login-shop">Shop Login</button></li>
+      </ul>
+    </footer>
+    {{/if}}
+  </div>
 </template>
 
 <template name="shop_item">
-  <li>
+  <li class="shop">
     <div class="logo">
       <img src="{{profile.logo}}" />
     </div>

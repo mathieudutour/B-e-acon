@@ -12,8 +12,11 @@ Template.landing.events({
   },
   "click #login-shop": function() {
     Router.goToPage(Router.Page.SHOP_LOGIN);
-  },
-  "click .shop": function(e) {
-    Router.goToPage(Router.Page.SHOP_MENU, e.currentTarget.id);
+  }
+});
+
+Template.shop_item.events({
+  "click .shop": function(e, t) {
+    Router.goToPage(Router.Page.SHOP_MENU, t.data._id);
   }
 });

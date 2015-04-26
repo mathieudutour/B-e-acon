@@ -7,6 +7,7 @@
   background-size: cover;
 
   #signup-form {
+    .center();
     color: #AAA;
     position: absolute;
     width: 40%;
@@ -19,7 +20,6 @@
     .shadow;
     & > div {
       width: 50%;
-      margin-left: 25%;
     }
     .pb-container {
       color: #4B1601;
@@ -27,6 +27,7 @@
   }
 
   #login-form {
+    .center();
     color: #FFF;
     position: absolute;
     width: 35%;
@@ -39,10 +40,13 @@
     .shadow;
     & > div {
       width: 50%;
-      margin-left: 25%;
+      input {
+        color: #FFF;
+      }
     }
   }
   h1 {
+    margin-top: 0;
     font-weight: 100;
     text-align:center;
   }
