@@ -77,6 +77,9 @@ Template.shop_config.helpers({
   companyMotto: function() {
     return Meteor.user().profile.info.motto;
   },
+  mySales: function() {
+    return Meteor.user().profile.sales;
+  },
   beacon: function() {
     return Meteor.user().profile.info.beacon;
   },

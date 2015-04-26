@@ -11,10 +11,18 @@ Meteor.publish("shop", function (shopId) {
   }
 });
 
+Meteor.publish("myshops", function () {
+  if (this.userId) {
+    return Meteor.users.find(this.userId, {fields: {'profile.sales': 1}});
+  } else {
+    this.ready();
+  }
+});
+
 Meteor.publish("shops", function () {
     return Meteor.users.find({
       'profile.isShop': true
-    }, {fields: {'profile.sales': 0, 'profile.sections': 0}});
+    }, {fields: {'profile.sales': 0}});
 });
 
 Meteor.publish("cartitems", function() {
