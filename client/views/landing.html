@@ -1,22 +1,15 @@
 <template name="landing">
   <div class="landing">
-    {{#if shops}}
-    <ul>
-      {{#each shops}}
-        {{> shop_item}}
-      {{/each}}
-    </ul>
-    {{else}}
-    <header>
 
-    </header>
-    <footer>
-      <ul>
-        <li><button id="login">Login</button></li>
-        <li><button id="login-shop">Shop Login</button></li>
-      </ul>
-    </footer>
-    {{/if}}
+      <div id="buttons">
+          <div class="inner">
+              <button class="landing-button" id="login">Login</button>
+          </div>
+          <div class="inner">
+            <button class="landing-button" id="login-shop">Shop Login</button>
+          </div>
+      </div>
+
   </div>
 </template>
 
