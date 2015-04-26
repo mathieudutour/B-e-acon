@@ -1,6 +1,14 @@
 <template name="landing">
   <div class="landing">
-
+    {{#if shops}}
+    <header class="mobile">Cafés around you</header>
+    <div class="no-more">That's all for now.</div>
+    <ul class="shops">
+      {{#each shops}}
+        {{> shop_item}}
+      {{/each}}
+    </ul>
+    {{else}}
       <div id="buttons">
           <div class="inner">
               <button class="landing-button" id="login">Login</button>
@@ -9,15 +17,15 @@
             <button class="landing-button" id="login-shop">Shop Login</button>
           </div>
       </div>
-
+      {{/if}}
   </div>
 </template>
 
 <template name="shop_item">
-  <li class="shop">
-    <div class="logo">
-      <img src="{{profile.logo}}" />
+  <li class="shop" style="background-image: url(/images/food.jpg)">
+    <div class="text">
+      <div class="name">{{profile.name}}</div>
+      <div class="motto">{{profile.info.motto}}</div>
     </div>
-    <div class="name">{{profile.name}}</div>
   </li>
 </template>
