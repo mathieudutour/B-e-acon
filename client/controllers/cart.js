@@ -22,6 +22,9 @@ Template.cart.helpers({
   },
   'payNow':function(){
     return Session.get('payNow');
+  },
+  'notPayNow':function(){
+    return !Session.get('payNow');
   }
 });
 

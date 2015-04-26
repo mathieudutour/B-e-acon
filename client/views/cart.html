@@ -1,23 +1,27 @@
 <template name="cart">
   <div class="checkout{{#if checkoutActive}} checkout--active{{/if}}">
+    {{#if notPayNow}}
     <table class="checkout__summary">
       <thead>
         <tr>
           <th>Your Order</th>
           <th>Quantity</th>
           <th>Price</th>
+          <th></th>
         </tr>
       </thead>
       <tfoot>
         <tr>
-          <th colspan="2">Total <span class="checkout__total">{{currency cartitems.total}}</span>
+          <th></th>
+          <th colspan="2">Total <span class="checkout__total">{{currency cartItems.total}}</span>
           </th>
+          <th></th>
         </tr>
       </tfoot>
       {{#each cartItems}}
       <tr>
-        <td>{{quantity}}</td>
         <td>{{product.name}}</td>
+        <td>{{quantity}}</td>
         <td>{{currency price}}</td>
         <td><span class="label-important label removeci">X</span>
         </td>
@@ -26,13 +30,60 @@
       <tbody>
       </tbody>
     </table>
-
-    <button class="checkout__option checkout__option--silent checkout__cancel"><i class="fa fa-angle-left"></i> Continue shopping</button>
-    <button class="pay-now-btn checkout__option checkout__option--loud">Pay now</button>
+    {{/if}}
+    <div class="buttons">
+      <button class="checkout__option checkout__option--silent checkout__cancel">Continue shopping</button>
+      {{#if notPayNow}}
+      <button class="pay-now-btn checkout__option checkout__option--loud">Order now</button>
+      {{/if}}
+    </div>
     {{#if payNow}}
       {{> BT}}
     {{/if}}
     <a class="checkout__button" href="#">Checkout</a>
-    <!-- /checkout -->
+  </div>
+</template>
+
+<template name="BT">
+  <div class="payment-form {{paymentFormStatusClass}}">
+    <div class="row">
+      <div class="overlay-bt">
+        <h1 class="overlay__message">
+          Processing...
+        </h1>
+      </div>
+    </div>
+
+    <div class="row">
+      <h2>Checkout</h2>
+
+      <hr>
+
+      <form id="checkout" method="post" action="/checkout">
+        <h3>Details</h3>
+        <div class="row">
+          <label for="firstName" class="columns small-12 large-6">
+            First Name
+            <input type="text" name="firstName" required>
+          </label>
+
+          <label for="lastName" class="columns small-12 large-6 ">
+            Last Name
+            <input type="text" name="lastName" required>
+          </label>
+        </div>
+
+        <h3>Payment</h3>
+        <div class="row">
+          <div id="dropin" class="columns small-12"></div>
+        </div>
+
+        <div class="row">
+          <div class="columns small-12">
+            <button type="submit">Complete Your Purchase</button>
+          </div>
+        </div>
+      </form>
+    </div>
   </div>
 </template>

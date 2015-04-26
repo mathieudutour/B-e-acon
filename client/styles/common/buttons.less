@@ -13,6 +13,7 @@
   cursor: pointer;
   .transition;
   -webkit-tap-highlight-color: transparent;
+  outline: none;
 
   &.secondary {
     background: @secondary-color;
@@ -28,6 +29,10 @@
     background: @error-color;
     color: @primary-color;
   }
+}
+
+.button:focus {
+  outline: none;
 }
 
 .pb-container > .pb-button {

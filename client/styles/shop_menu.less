@@ -1,4 +1,100 @@
+@import "common/variables.less";
+
 .shop-menu {
   height: 100%;
-  overflow-y: auto;
+  width: 100%;
+  overflow: hidden;
+  .sections {
+    position:absolute;
+    height: 100%;
+    overflow-y: auto;
+    width: 100%;
+    .transition;
+    &.move {
+      transform: translate(-100%, 0);
+    }
+
+    .section {
+      list-style: none;
+      height: 200px;
+    }
+  }
+  .products {
+    position:absolute;
+    height: 100%;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    width: 100%;
+    transform: translate(100%, 0);
+    padding-bottom: 50px;
+    .transition;
+    &.move {
+      transform: translate(0, 0);
+    }
+    .products-wrapper {
+      height: 100%;
+      width: 100%;
+      overflow-x: auto;
+    }
+    .products-inner {
+      height: 100%;
+      .product {
+        width: 90vw;
+        margin-left: 5vw;
+        height: 80%;
+        margin-top: 7vw;
+        float:left;
+
+        .form {
+          height: 90px;
+          font-size: 17px;
+          input {
+            width: 30%;
+            float: left;
+            height: 60px;
+          }
+          .button {
+            margin-top: 1em;
+            height: 60px;
+            width: 60%;
+            float: left;
+          }
+        }
+        .show-product {
+          height: ~'calc(100% - 90px)';
+          background-size: cover;
+          background-position: center;
+          position: relative;
+          .text {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            padding-left: 20px;
+            height: 90px;
+            background-image: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0));
+            .name {
+              font-weight: 100;
+              font-size: 3em;
+              color: #FFF;
+              line-height: 1.5em;
+            }
+            .description {
+              font-weight: 100;
+              font-size: 1.5em;
+              color: #BBB;
+            }
+            .price {
+              position: absolute;
+              right: 3px;
+              bottom: -13px;
+              font-size: 4em;
+              color: #FFF;
+              font-weight: 100;
+            }
+          }
+        }
+      }
+    }
+
+  }
 }
