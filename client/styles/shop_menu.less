@@ -13,10 +13,23 @@
     &.move {
       transform: translate(-100%, 0);
     }
-
+    ul {
+      margin: 0;
+    }
     .section {
       list-style: none;
-      height: 200px;
+      height: 100px;
+      padding-left: 20px;
+      border-bottom: 1px solid #DDD;
+
+      .text {
+        .name {
+          color: @primary-color;
+          font-size: 3em;
+          font-weight: 100;
+          line-height: 60px;
+        }
+      }
     }
   }
   .products {

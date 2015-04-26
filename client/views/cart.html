@@ -59,30 +59,17 @@
 
       <hr>
 
-      <form id="checkout" method="post" action="/checkout">
+      <form id="checkout" method="post" action="/checkout" class="form">
         <h3>Details</h3>
-        <div class="row">
-          <label for="firstName" class="columns small-12 large-6">
-            First Name
-            <input type="text" name="firstName" required>
-          </label>
-
-          <label for="lastName" class="columns small-12 large-6 ">
-            Last Name
-            <input type="text" name="lastName" required>
-          </label>
-        </div>
+        <input type="text" name="firstName" placeholder="First Name" required>
+        <input type="text" name="lastName" placeholder="Last Name" required>
 
         <h3>Payment</h3>
         <div class="row">
           <div id="dropin" class="columns small-12"></div>
         </div>
 
-        <div class="row">
-          <div class="columns small-12">
-            <button type="submit">Complete Your Purchase</button>
-          </div>
-        </div>
+        <button class="button" type="submit">Complete Your Purchase</button>
       </form>
     </div>
   </div>

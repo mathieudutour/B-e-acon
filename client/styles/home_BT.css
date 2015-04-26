@@ -1,8 +1,7 @@
-/* CSS declarations go here */
 .overlay-bt {
   position: absolute;
   z-index: 1000;
-  width:100%;
+  width:100vw;
   top: 0;
   right:0 ;
   bottom: 0;
