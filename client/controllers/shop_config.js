@@ -21,6 +21,9 @@ Template.shop_config.events({
   "click #menu": function (e, t) {
     Session.set('currentTab', "menu");
   },
+  "click #sales": function (e, t) {
+    Session.set('currentTab', "sales");
+  },
   "click #colorBackground": function (e, t) {
     Session.set('currentPicker', "#colorBackground");
   },
@@ -88,13 +91,16 @@ Template.shop_config.helpers({
     return Meteor.user().profile.info.textColor;
   },
   settings: function() {
-    return Session.get('currentTab') !== 'colors' && Session.get('currentTab') !== 'menu';
+    return Session.get('currentTab') !== 'colors' && Session.get('currentTab') !== 'menu' && Session.get('currentTab') !== 'sales';
   },
   colors: function() {
     return Session.get('currentTab') === 'colors';
   },
   menu: function() {
     return Session.get('currentTab') === 'menu';
+  },
+  sales: function() {
+    return Session.get('currentTab') === 'sales';
   },
   
 });
