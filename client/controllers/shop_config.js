@@ -1,14 +1,11 @@
 Template.shop_config.onRendered(function () {
   $('#colorpicker').farbtastic(function (color) {
     if (Session.get("currentPicker")) {
-      $(Session.get("currentPicker")).val(color);
-      $(Session.get("currentPicker")).css("background-color", color);
+      $('#'+Session.get("currentPicker")).val(color);
+      $("#show"+Session.get("currentPicker")).css("background-color", color);
     }
   });
   
-  $('#colorBackground').css("background-color", Meteor.user().profile.info.backgroundColor);
-  $('#colorMain').css("background-color", Meteor.user().profile.info.mainColor);
-  $('#colorText').css("background-color", Meteor.user().profile.info.textColor);
 });
 
 Template.shop_config.events({
@@ -25,16 +22,16 @@ Template.shop_config.events({
     Session.set('currentTab', "sales");
   },
   "click #colorBackground": function (e, t) {
-    Session.set('currentPicker', "#colorBackground");
+    Session.set('currentPicker', "colorBackground");
   },
   "change #colorBackground": function (e, t) {
     $('#colorBackground').css("background-color", e.currentTarget.value);
   },
   "click #colorMain": function (e, t) {
-    Session.set('currentPicker', "#colorMain");
+    Session.set('currentPicker', "colorMain");
   },
   "click #colorText": function (e, t) {
-    Session.set('currentPicker', "#colorText");
+    Session.set('currentPicker', "colorText");
   },
   "click #nextSection": function (e, t) {
     e.preventDefault();

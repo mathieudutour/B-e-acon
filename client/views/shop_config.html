@@ -60,7 +60,7 @@
                 <div class="row toggle" id="dropdown-detail-1" data-toggle="detail-1">
                   <div class="col-xs-12">        
                     <input type="text" id="beaconID" class="form-control" value="{{beacon}}"/><br/>
-                    </div>
+                  </div>
                 </div>
               </li>
             </ul>
@@ -68,15 +68,62 @@
       </div>
 
       <div class="colorTab{{#if colors}} show{{/if}}">
-        <span>Choose your background colour:</span>
-        <input type="text" id="colorBackground" name="colorBackground" value="{{colorBackground}}" /><br/>
-
-        <span>Choose your main colour:</span>
-        <input type="text" id="colorMain" name="colorMain" value="{{colorMain}}" /><br/>
-
-        <span>Choose your text colour:</span>
-        <input type="text" id="colorText" name="colorText" value="{{colorText}}" /><br/>
         <div id="colorpicker"></div>
+        
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Choose your background colour:
+            <div class="showColor" id="showcolorBackground" style='background-color: {{colorBackground}};'></div></h3>
+          </div>
+          <ul class="list-group">
+            <li class="list-group-item">
+              <div class="row toggle" id="dropdown-detail-1" data-toggle="detail-1">
+                <div class="col-xs-12"> 
+                  <input type="text" id="colorBackground" class="form-control" name="colorBackground" value="{{colorBackground}}" /><br/>
+                </div>
+                
+                </div>
+              </li>
+            </ul>
+          </div>
+
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Choose your main colour:
+              <div class="showColor" id="showcolorMain" style='background-color: {{colorMain}};'></div>
+            </h3>
+            
+          </div>
+          <ul class="list-group">
+            <li class="list-group-item">
+              <div class="row toggle" id="dropdown-detail-1" data-toggle="detail-1">
+                <div class="col-xs-12"> 
+                  <input type="text" id="colorMain" class="form-control" name="colorMain" value="{{colorMain}}" /><br/>
+                </div>
+                
+              </div>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Choose your text colour:
+            <div class="showColor" id="showcolorText" style='background-color: {{colorText}};'></div></h3>
+          </div>
+          <ul class="list-group">
+            <li class="list-group-item">
+              <div class="row toggle" id="dropdown-detail-1" data-toggle="detail-1">
+                <div class="col-xs-12"> 
+                  <input type="text" id="colorText" class="form-control" name="colorText" value="{{colorText}}" /><br/>
+                </div>
+                
+              </div>
+            </li>
+          </ul>
+        </div>
+        
+        
       </div>
 
       <div class="menuTab{{#if menu}} show{{/if}}">
@@ -95,7 +142,7 @@
       </div>
     </div>
     
-    <input type="submit" value="Submit"/>
+    <input type="submit" id="submitBtn" value="Submit" class='button'/>
   </form>
 
 </template>
