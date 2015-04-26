@@ -1,8 +1,9 @@
-Session.set('category', null);
+Session.set('section', null);
 
 Template.sections.helpers({
   'sections': function () {
-    return Categories.find();
+    var shop = Meteor.users.findOne({_id: Session.get('shopId')});
+    return shop && shop.profile.sections;
 
   }
 });
@@ -10,27 +11,30 @@ Template.sections.helpers({
 Template.sections.events({
   'click .section': function (e) {
     e.preventDefault();
-    Session.set('category', e.currentTarget.id);
+    Session.set('section', e.currentTarget.id);
   }
 });
 
 Template.products.helpers({
   'productlist': function () {
-    var cat = Categories.findOne({
-      _id: Session.get('category')
-    });
-    return cat && cat.items;
+    var shop = Meteor.users.findOne({_id: Session.get('shopId')});
+    var section = shop && shop.profile.sections.filter(function(_section) {
+      return _section._id.toString() === Session.get('section');
+    })[0];
+    return section && section.items;
   },
   'catnotselected': function () {
-    return Session.equals('category', null);
+    return Session.equals('section', null);
   },
   'category': function () {
-    return Session.get('category');
+    return Session.get('section');
   }
 });
 
 Template.product.events({
   'click .addcart': function (e, t) {
+    e.preventDefault();
+
     var quantity = parseInt(t.find('.prodqty').value);
     if (isNaN(quantity) || quantity <= 0) {
       return false;

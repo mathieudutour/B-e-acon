@@ -1,8 +1,8 @@
 <template name="landing">
   <ul>
     {{#each shops}}
-      <li>{{profile.name}}</li>
-      {{else}}
+      <li class="shop" id="{{_id}}">{{profile.name}}</li>
+    {{else}}
       no shops
     {{/each}}
   </ul>
