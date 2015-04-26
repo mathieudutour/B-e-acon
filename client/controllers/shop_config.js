@@ -1,14 +1,11 @@
 Template.shop_config.onRendered(function () {
   $('#colorpicker').farbtastic(function (color) {
     if (Session.get("currentPicker")) {
-      $(Session.get("currentPicker")).val(color);
-      $(Session.get("currentPicker")).css("background-color", color);
+      $('#'+Session.get("currentPicker")).val(color);
+      $("#show"+Session.get("currentPicker")).css("background-color", color);
     }
   });
-  
-  $('#colorBackground').css("background-color", Meteor.user().profile.info.backgroundColor);
-  $('#colorMain').css("background-color", Meteor.user().profile.info.mainColor);
-  $('#colorText').css("background-color", Meteor.user().profile.info.textColor);
+
 });
 
 Template.shop_config.events({
@@ -25,16 +22,16 @@ Template.shop_config.events({
     Session.set('currentTab', "sales");
   },
   "click #colorBackground": function (e, t) {
-    Session.set('currentPicker', "#colorBackground");
+    Session.set('currentPicker', "colorBackground");
   },
   "change #colorBackground": function (e, t) {
     $('#colorBackground').css("background-color", e.currentTarget.value);
   },
   "click #colorMain": function (e, t) {
-    Session.set('currentPicker', "#colorMain");
+    Session.set('currentPicker', "colorMain");
   },
   "click #colorText": function (e, t) {
-    Session.set('currentPicker', "#colorText");
+    Session.set('currentPicker', "colorText");
   },
   "click #nextSection": function (e, t) {
     e.preventDefault();
@@ -134,5 +131,18 @@ Template.menuList.events({
       return section;
     });
     Meteor.users.update(Meteor.userId(), {$set: {"profile.sections": newSections}});
+  },
+  "click .toggleSection": function(e, t) {
+    e.preventDefault();
+    Session.set('hideSectionItems'+t.data._id._str, "true");
+  }
+});
+
+Template.menuList.helpers({
+  hideItems: function() {
+    console.log(this);
+    //if(Session.get('hideSectionItems'+this.data._id._str){
+       //console.log("kdfv,jkdfvbdklgkfgbdzgkjdngzdjk");
+    //}
   },
 });
