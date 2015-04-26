@@ -48,12 +48,12 @@ Meteor.methods({
 
     Meteor.users.update(data.shopId, {$push: {'profile.sales': {
       amount: data.price,
-      _id: response.id,
+      _id: data.nonce,
       customer: {
         firstName: data.firstName,
         lastName: data.lastName
       },
-      timestamp: response.updatedAt,
+      timestamp: new Date(),
       items: cartItems
     }}});
 

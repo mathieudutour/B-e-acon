@@ -19,7 +19,6 @@
     url: '/shop/'
   CONFIRMATION:
     index: 5
-    protected: true
     url: '/confirmation/'
 
 Meteor.startup () ->

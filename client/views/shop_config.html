@@ -139,14 +139,14 @@
       </div>
       
       <div class="salesTab{{#if sales}} show{{/if}}">
-        {{#each sales}}
+        {{#each mySales}}
           {{> sale}}
         {{else}}
           No sales yet
         {{/each}}
       </div>
     </div>
-    
+    <div class="clearFix"></div>
     <input type="submit" id="submitBtn" value="Submit" class='button'/>
   </form>
 
@@ -154,9 +154,14 @@
 
 <template name="sale">
   <div class="sale">
-    <div>{{customer.firstname}} {{customer.lastname}}</div>
+    <div>{{customer.firstName}} {{customer.lastName}}</div>
     <div>{{currency amount}}</div>
     <div>{{prettifyDate timestamp}}</div>
+    <ul>
+      {{#each items}}
+        <li>{{quantity}} * {{product.name}}</li>
+      {{/each}}
+    </ul>
   </div>
 </template>
 

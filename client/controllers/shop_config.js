@@ -73,7 +73,7 @@ Template.shop_config.helpers({
   sections: function () {
     return Meteor.user().profile.sections;
   },
-  sales: function () {
+  mySales: function () {
     return Meteor.user().profile.sales;
   },
   companyMotto: function() {
@@ -144,7 +144,6 @@ Template.menuList.events({
 
 Template.menuList.helpers({
   hideItems: function() {
-    console.log(this);
     //if(Session.get('hideSectionItems'+this.data._id._str){
        //console.log("kdfv,jkdfvbdklgkfgbdzgkjdngzdjk");
     //}

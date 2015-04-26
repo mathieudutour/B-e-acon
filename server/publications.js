@@ -3,7 +3,7 @@ Meteor.publish("shop", function (shopId) {
   if (shopId) {
     return Meteor.users.find({
       _id: shopId,
-      isShop: true
+      'profile.isShop': true
     });
 
   } else {
@@ -14,8 +14,10 @@ Meteor.publish("shop", function (shopId) {
 Meteor.publish("shops", function (beaconIds) {
   if (beaconIds) {
     return Meteor.users.find({
-      isShop: true,
-      "profile.info.beacon": {$in: JSON.parse(beaconIds)}
+      'profile.isShop': true,
+      "profile.info.beacon": {$in: JSON.parse(beaconIds).map(function(id){
+        return "" + id;
+      })}
     });
   } else {
     this.ready();
