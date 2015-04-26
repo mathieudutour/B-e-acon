@@ -139,13 +139,25 @@
       </div>
       
       <div class="salesTab{{#if sales}} show{{/if}}">
-        nothing to show, nothing to hidde.
+        {{each sales}}
+          {{> sale}}
+        {{else}}
+          No sales yet
+        {{/each}}
       </div>
     </div>
     
     <input type="submit" id="submitBtn" value="Submit" class='button'/>
   </form>
 
+</template>
+
+<template name="sale">
+  <div class="sale">
+    <div>{{customer.firstname}} {{customer.lastname}}</div>
+    <div>{{currency amount}}</div>
+    <div>{{prettifyDate timestamp}}</div>
+  </div>
 </template>
 
 <template name="menuList">

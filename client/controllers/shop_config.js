@@ -73,6 +73,9 @@ Template.shop_config.helpers({
   sections: function () {
     return Meteor.user().profile.sections;
   },
+  sales: function () {
+    return Meteor.user().profile.sales;
+  },
   companyMotto: function() {
     return Meteor.user().profile.info.motto;
   },
