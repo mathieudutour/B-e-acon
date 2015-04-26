@@ -54,7 +54,11 @@ Template.shop_login.events({
       Accounts.createUser({email: email,
                            password : password,
                            isShop: true,
-                           profile : {name: name, sections: [], info: {backgroundColor: '#123456', mainColor: '#ffffff', textColor:                                               '#000000'}}}, function(err){
+                           profile : {name: name, sections: [], sales: [],
+                                      info: {backgroundColor: '#123456',
+                                             mainColor: '#ffffff',
+                                             textColor: '#000000'}}},
+                          function(err){
         if (err) {
           button.error();
           console.log(err);

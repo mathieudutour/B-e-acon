@@ -86,6 +86,7 @@ function initializeBraintree (clientToken) {
       // to make a transaction
       var data = serializeForm($('#checkout'));
       data.nonce = nonce;
+      data.shopId = Session.get('shopId');
       Meteor.call('createTransaction', data,
                   Meteor.default_connection._lastSessionId,
                   function (err, result) {

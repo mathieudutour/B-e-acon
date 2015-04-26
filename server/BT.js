@@ -35,7 +35,8 @@ Meteor.methods({
     }
     var transaction = Meteor.wrapAsync(gateway.transaction.sale, gateway.transaction);
     // this is very naive, do not do this in production!
-    //    var amount = parseInt(data.quantity, 10) * data.price;
+
+
     var response = transaction({
       amount: data.price,
       paymentMethodNonce: data.nonce,
@@ -45,9 +46,16 @@ Meteor.methods({
       }
     });
 
-    // ...
-    // perform a server side action with response
-    // ...
+    Meteor.users.update(data.shopId, {$push: {'profile.sales': {
+      amount: data.price,
+      _id: response.id,
+      customer: {
+        firstName: data.firstName,
+        lastName: data.lastName
+      },
+      timestamp: response.updatedAt,
+      items: cartItems
+    }}});
 
     return response;
   }
