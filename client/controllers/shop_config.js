@@ -5,7 +5,7 @@ Template.shop_config.onRendered(function () {
       $("#show"+Session.get("currentPicker")).css("background-color", color);
     }
   });
-
+  
 });
 
 Template.shop_config.events({
@@ -38,9 +38,9 @@ Template.shop_config.events({
     Meteor.users.update(Meteor.userId(), {$push: {"profile.sections":
           {name: "", description: "", items: [], _id: new Mongo.ObjectID()}}});
   },
-  "submit form": function (e, t) {
+  "submit #shop-form": function (e, t) {
     event.preventDefault();
-    
+    var button = new ProgressButton("submitBtn");
     Meteor.users.update(Meteor.userId(), {$set: {"profile.name": t.find("#companyName").value}});
     
     Meteor.users.update(Meteor.userId(), {$set: {"profile.info": 
@@ -63,6 +63,7 @@ Template.shop_config.events({
       return section;
     });
     Meteor.users.update(Meteor.userId(), {$set: {"profile.sections": sections}});
+    button.success();
   },
 });
 
@@ -72,9 +73,6 @@ Template.shop_config.helpers({
   },
   sections: function () {
     return Meteor.user().profile.sections;
-  },
-  mySales: function () {
-    return Meteor.user().profile.sales;
   },
   companyMotto: function() {
     return Meteor.user().profile.info.motto;
@@ -111,7 +109,7 @@ Template.menuList.events({
     e.preventDefault();
     var newSections = Meteor.user().profile.sections.map(function(section){
       if(EJSON.equals(section._id, t.data._id)) {
-       section.items.push({name: "", price: "", _id: new Mongo.ObjectID(), description: "", url: ""});
+       section.items.push({name: "", price: "", _id: new Mongo.ObjectID(), description: "", url: ""}); 
       }
       return section;
     });
@@ -144,6 +142,7 @@ Template.menuList.events({
 
 Template.menuList.helpers({
   hideItems: function() {
+    console.log(this);
     //if(Session.get('hideSectionItems'+this.data._id._str){
        //console.log("kdfv,jkdfvbdklgkfgbdzgkjdngzdjk");
     //}

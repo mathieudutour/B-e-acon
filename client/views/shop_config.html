@@ -147,7 +147,10 @@
       </div>
     </div>
     <div class="clearFix"></div>
-    <input type="submit" id="submitBtn" value="Submit" class='button'/>
+    <!--<input type="submit" id="submitBtn" value="Submit" class='button'/> -->
+     <div class="form-button">
+          {{#progress_button class="button" id="submitBtn" type="submit"}} Save ! {{/progress_button}}
+    </div>
   </form>
 
 </template>
@@ -175,7 +178,6 @@
 
             </div>
             <div class="col-xs-6">
-              <span class="onLeft toggleSection"><i class="fa fa-chevron-down"></i></span>
               <button class="removeSection onLeft button">Remove</button>
               <button class="nextItem onLeft button">Add item</button>
             </div>
