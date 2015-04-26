@@ -5,7 +5,11 @@ Template.landing.helpers({
 //                        .map(function(id){
 //        return "" + id;
 //      })}});
-    return Meteor.users.find({'profile.isShop': true});
+    return Meteor.users.find({'profile.isShop': true,
+      "profile.info.beacon": {$in: JSON.parse(Session.get('beaconIds'))
+                              .map(function(id){
+        return "" + id;
+      })}});
   }
 });
 
