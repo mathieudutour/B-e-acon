@@ -1,8 +1,13 @@
 <template name="confirmation">
   <div class="conf-wrapper">
-    <img src="/images/Tick.gif" />
-    <h2>Your order will be ready soon!</h2>
-
-    <button class="button">Home</button>
+    <div class="confirmation-class">
+      <img src="/images/Tick.gif" />
+      <h2>Your order will be ready soon!</h2>
+      <h5>Your confirmation number is:</h5>
+      <br>
+      <br>
+      <h3>{{confNumber}}</h3>
+      <button class="button">Home</button>
+    </div>
   </div>
 </template>
