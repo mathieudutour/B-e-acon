@@ -7,7 +7,10 @@ body {
 pre {
   tab-size: 8;
 }
-
+#shop-form {
+  height: 100%;
+  overflow-y: auto;
+}
 .navbar-inverse {
   background-color: #4B1601;
   border-color: #080808;
@@ -66,6 +69,7 @@ pre {
   //background-color: #EDEDED;
   //border-radius: 20px;
   box-shadow: none;
+  margin-bottom: 50px;
 }
 
 #colorpicker {
@@ -81,4 +85,25 @@ pre {
   float: right;
   margin-top: -6px;
   margin-right: 30px;
+}
+
+.onLeft {
+ float: right; 
+}
+
+#companyMenu input {
+  border: 0;
+  height: 25px;
+}
+
+.wholeSection + .wholeSection{
+ border-top: 1px solid #575757;
+  -webkit-box-shadow: 1px 1px 1px #636363;
+-moz-box-shadow: 1px 1px 1px #636363;
+box-shadow: 1px 1px 1px #636363;
+}
+
+.wholeItem {
+  border-top: 1px solid #636363;
+  
 }

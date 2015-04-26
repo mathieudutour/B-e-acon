@@ -132,4 +132,17 @@ Template.menuList.events({
     });
     Meteor.users.update(Meteor.userId(), {$set: {"profile.sections": newSections}});
   },
+  "click .toggleSection": function(e, t) {
+    e.preventDefault();
+    Session.set('hideSectionItems'+t.data._id._str, "true");
+  }
+});
+
+Template.menuList.helpers({
+  hideItems: function() {
+    console.log(this);
+    //if(Session.get('hideSectionItems'+this.data._id._str){
+       //console.log("kdfv,jkdfvbdklgkfgbdzgkjdngzdjk");
+    //}
+  },
 });
