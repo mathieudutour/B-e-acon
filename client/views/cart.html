@@ -1,42 +1,38 @@
 <template name="cart">
-    <div class="page-header">
-        <h1>
-            <small>My Cart</small>
-        </h1>
-    </div>
-    <table class="span4 table table-striped table-bordered table-hover">
-        <thead>
-        <th>Qty</th>
-        <th>Product</th>
-        <th>Price</th>
-        <th></th>
-        </thead>
-        <tbody>
-        {{#each cartItems}}
+  <div class="checkout{{#if checkoutActive}} checkout--active{{/if}}">
+    <table class="checkout__summary">
+      <thead>
         <tr>
-            <td>{{quantity}}</td>
-            <td>{{product.name}}</td>
-            <td>{{currency price}}</td>
-            <td><span class="label-important label removeci">X</span></td>
+          <th>Your Order</th>
+          <th>Quantity</th>
+          <th>Price</th>
         </tr>
-        {{else}}
+      </thead>
+      <tfoot>
         <tr>
-            <td colspan="3">No Products in Cart</td>
+          <th colspan="2">Total <span class="checkout__total">{{currency cartitems.total}}</span>
+          </th>
         </tr>
-        {{/each}}
-        <tr>
-            <td class="totalcol" colspan="2">SubTotal:</td>
-            <td colspan="2">{{currency cartitems.subtotal}}</td>
-        </tr>
-        <tr>
-            <td class="totalcol" colspan="2">Tax 6%:</td>
-            <td colspan="2">{{currency cartitems.tax}}</td>
-        </tr>
-        <tr>
-            <td class="totalcol" colspan="2">Total:</td>
-            <td colspan="2">{{currency cartitems.total}}</td>
-        </tr>
-        </tbody>
+      </tfoot>
+      {{#each cartItems}}
+      <tr>
+        <td>{{quantity}}</td>
+        <td>{{product.name}}</td>
+        <td>{{currency price}}</td>
+        <td><span class="label-important label removeci">X</span>
+        </td>
+      </tr>
+      {{/each}}
+      <tbody>
+      </tbody>
     </table>
 
+    <button class="checkout__option checkout__option--silent checkout__cancel"><i class="fa fa-angle-left"></i> Continue shopping</button>
+    <button class="pay-now-btn checkout__option checkout__option--loud">Pay now</button>
+    {{#if payNow}}
+      {{> BT}}
+    {{/if}}
+    <a class="checkout__button" href="#">Checkout</a>
+    <!-- /checkout -->
+  </div>
 </template>
