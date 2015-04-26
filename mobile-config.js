@@ -1,13 +1,13 @@
 /*App.info({
   id: 'com.meteor.beacon',
-  name: 'The B(e)acon',
+  name: 'The Beacon',
   description: '',
   author: 'Mathieu Dutour',
   email: 'mathieu@dutour.me',
-  website: 'http://beacon.meteor.com',
+  website: 'http://thebeacon.meteor.com',
   version: '0.1.10'
-});
-*/
+});*/
+
 /*
 // https://gist.github.com/jperl/f8c395b9f0f1056ad890
 // http://ticons.fokkezb.nl/
@@ -47,9 +47,12 @@ App.launchScreens({
   'android_xhdpi_landscape': 'public/splash/android/images/res-notlong-land-xhdpi/default.png'
 });
 */
+App.accessRule("http://localhost:3000/*");
 App.accessRule("https://assets.braintreegateway.com/*");
 App.accessRule("https://client-analytics.sandbox.braintreegateway.com/*");
 App.accessRule("https://checkout.paypal.com/*");
 App.accessRule("https://api.sandbox.braintreegateway.com/*");
+App.accessRule("http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css");
+
 // Set PhoneGap/Cordova preferences
 //App.setPreference('BackgroundColor', '0xffFFFFFF');
