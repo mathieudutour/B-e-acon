@@ -1,31 +1,34 @@
-#controlPanel {
-  height: 60px;
-  background-color: black;
-  -webkit-box-shadow: 3px 3px 5px 6px #ccc;
-  color: white;
-  span {
-    margin-right: 60px;
-    margin-top: 10px;
-    float: right;
-    font-weight: 900;
-    font-size: 30px;
-  }
-  ul {
-    float: right;
-    list-style-type: none;
-    
-    li {
-      display: inline;
-      cursor: pointer;
-    }
-  }
+body {
+  padding-top: 50px;
+  position: relative;
+  font-size: 22px;
+}
+      
+pre {
+  tab-size: 8;
 }
 
 .userApp > div{
   display: none;
+  font-size: 20px;
   
   &.show {
+    padding-top: 100px;
     display: block;
   }
 }
 
+.navbar-collapse {
+  padding-top: 10px;
+  padding-left: 20px;
+}
+.navbar-collapse {
+  height: 70px;
+}
+
+.form-control {
+  border: 0;
+}
+.panel > .list-group:last-child .list-group-item:last-child, .panel > .panel-collapse > .list-group:last-child .list-group-item:last-child {
+  height: 55px !important;
+}

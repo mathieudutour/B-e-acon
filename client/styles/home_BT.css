@@ -1,5 +1,5 @@
 /* CSS declarations go here */
-.overlay {
+.overlay-bt {
   position: absolute;
   z-index: 1000;
   width:100%;
@@ -13,7 +13,7 @@
   display:none;
 }
 
-.payment-form__is-submitting .overlay {
+.payment-form__is-submitting .overlay-bt {
   display:block;
 }
 
