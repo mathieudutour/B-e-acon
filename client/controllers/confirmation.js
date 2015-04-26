@@ -3,6 +3,7 @@ Template.confirmation.helpers({
     var conf = CartItems.find({
       session: Meteor.default_connection._lastSessionId
     }).fetch();
-    return conf._id;
+//    return conf._id;
+    return "nananana BATMAN";
   }
 });
