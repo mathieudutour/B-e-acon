@@ -1,5 +1,5 @@
 Meteor.subscribe("cartitems");
-Meteor.subscribe("shops");
+//Meteor.subscribe("shops");
 Tracker.autorun( function() {
   Meteor.subscribe("shops", Session.get("beaconsIDs"));
 });
