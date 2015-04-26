@@ -13,8 +13,8 @@ function scan() {
           beacons.push(beacon.major);
         }
       }
-      console.log('onBeaconsRanged: ' + JSON.stringify(beacons));
-      Session.set("beaconsIDs", JSON.stringify(beacons));
+      //console.log('onBeaconsRanged: ' + JSON.stringify(beacons));
+      Session.set("beaconIds", JSON.stringify(beacons));
     }
 
     function onError(errorMessage) {
